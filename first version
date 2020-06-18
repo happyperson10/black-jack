@@ -1,0 +1,140 @@
+import random
+
+class Player:
+    def __init__(self, bet):
+        self.bet = bet
+while True:
+    try:
+        print('the goal of the game is to have more than the dealer every player has 100 dollars to start with')
+        print('for the sake of simplicity J Q K are gonna be 10 right of the bat ')
+        player1 = Player(100)
+        player2 = Player(100)
+        player3 = Player(100)
+        J = 10
+        Q = 10
+        K = 10
+
+        input1 = int(input('place your bet player1:'))
+        balance1 = player1.bet - input1
+        print('now your balance is:',balance1)
+
+        input2 = int(input('place your bet player2:'))
+        balance2 = player2.bet - input2
+        print('now your balance is:', balance2)
+
+        input3 = int(input('place your bet player3:'))
+        balance3 = player3.bet - input3
+        print('now your balance is:', balance3)
+        print('now let\'s draw two cards for each player ')
+        print('let\'s start with player1')
+        card = ['A',2,3,4,5,6,7,8,9,J,Q,K]
+        value1 = random.choices(card,weights=[4,4,4,4,4,4,4,4,4,4,4,4])
+        print(value1,end='')
+        if value1 == ['A'] :
+            print('only say 1 or 11')
+            inputA = int(input('do you want 1 or 11:'))
+            if inputA == 1:
+                value1.append(1)
+            elif inputA == 11:
+                value1.append(11)
+        value11 = random.choices(card,weights=[4,4,4,4,4,4,4,4,4,4,4,4])
+        print(value11)
+
+        if value11 == ['A']:
+            print('only say 1 or 11')
+            inputA = int(input('do you want 1 or 11:'))
+            if inputA == 1:
+                value11.append(1)
+            elif inputA == 11:
+                value11.append(11)
+
+        print('player2')
+        value2 = random.choices(card,weights=[4,4,4,4,4,4,4,4,4,4,4,4])
+        print(value2,end='')
+        if value2 == ['A']:
+            print('only say 1 or 11')
+            inputA = int(input('do you want 1 or 11:'))
+            if inputA == 1:
+                value2.append(1)
+            elif inputA == 11:
+                value2.append(11)
+        value22 = random.choices(card, weights=[4,4,4,4,4,4,4,4,4,4,4,4])
+        print(value22)
+        if value22 == ['A']:
+            print('only say 1 or 11')
+            inputA = int(input('do you want 1 or 11:'))
+            if inputA == 1:
+                value22.append(1)
+            elif inputA == 11:
+                value22.append(11)
+        print('player3')
+        value3  = random.choices(card,weights=[4,4,4,4,4,4,4,4,4,4,4,4])
+        print(value3,end='')
+        if value3 == ['A']:
+            print('only say 1 or 11')
+            inputA = int(input('do you want 1 or 11:'))
+            if inputA == 1:
+                value3.append(1)
+            elif inputA == 10:
+                value3.append(11)
+
+        value33 = random.choices(card, weights=[4,4,4,4,4,4,4,4,4,4,4,4])
+        print(value33)
+        if value33 == ['A']:
+            print('only say 1 or 11')
+            inputA = int(input('do you want 1 or 11:'))
+            if inputA == 1:
+                value33.append(1)
+            elif inputA == 11:
+                value33.append(11)
+        print('now for the dealer the dude has 1 card up and 1 down')
+        value4  = random.choices(card,weights=[4,4,4,4,4,4,4,4,4,4,4,4])
+        print(value4)
+        if value4 == ['A']:
+            print('only say 1 or 11')
+            inputA = int(input('do you want 1 or 11:'))
+            if inputA == 1:
+                value4.append(1)
+            elif inputA == 11:
+                value4.append(11)
+        if value1 + value11== 21:
+            print('that\'s it',input1*1.5)
+        if value2 + value22 == 21:
+            print('that\'s it',input2*1.5)
+        if value3 + value33 == 21:
+            print('that\'s it',input3*1.5)
+
+
+        stayorhit1 = input('type only stay or hit player1')
+        if stayorhit1 == 'stay':
+            pass
+        if stayorhit1 == 'hit':
+            hit1 = input('do you want to hit')
+            if hit1 == 'yes':
+                hit1 = random.choices(card, weights=[4,4,4,4,4,4,4,4,4,4,4,4])
+                print(hit1)
+                print('ok let\'s show all your cards',value1,value11,hit1)
+
+        stayorhit2 = input('type only stay or hit player2')
+        if stayorhit2 == 'stay':
+            pass
+        if stayorhit2 == 'hit':
+            hit2 = input('do you want to hit')
+            if hit2 == 'yes':
+                hit2 = random.choices(card, weights=[4,4,4,4,4,4,4,4,4,4,4,4])
+                print(hit2)
+                print('ok let\'s show all your cards', value2, value22, hit2)
+
+        stayorhit3 = input('type only stay or hit player3')
+        if stayorhit3 == 'stay':
+            pass
+        if stayorhit3 == 'hit':
+            hit3 = input('do you want to hit')
+            if hit3 == 'yes':
+                hit3 = random.choices(card, weights=[4,4,4,4,4,4,4,4,4,4,4,4])
+                print(hit3)
+                print('ok let\'s show all your cards', value3, value33, hit3)
+
+
+    except ValueError:
+        print('Error seems like you are not using numbers')
